@@ -1,0 +1,179 @@
+/* Estilos para el layout principal */
+.mypokemon-layout {
+  display: flex;
+  min-height: 80vh;
+  gap: 24px;
+  padding: 0;
+}
+
+/* Contenedor principal con las tres columnas */
+.mypokemon-container {
+  display: flex;
+  width: 100%;
+  gap: 24px;
+  padding: 20px;
+  max-width: 2400px;
+  margin: 0 auto;
+  min-height: calc(100vh - 100px);
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+/* .mypokemon-container {
+  display: grid;
+  grid-template-columns: 250px 1fr 250px;
+  gap: 24px;
+  padding: 20px;
+  max-width: 2400px;
+  margin: 0 auto;
+  min-height: calc(100vh - 100px);
+} */
+
+/* Barra lateral izquierda (usuario) */
+.mypokemon-sidebar {
+  /* width: 250px; */
+  flex: 0 0 250px;
+  background: #f7f7fa;
+  border-radius: 12px;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+/* Contenido principal (pokemones) */
+.mypokemon-main {
+  /* flex: 1 1 auto; */
+  flex: 1;
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  min-width: 0;
+}
+
+/* Barra lateral derecha (reseñas) */
+.reviews-sidebar {
+  /* width: 250px; */
+  flex: 0 0 250px;
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  position: sticky;
+  top: 20px;
+}
+
+.reviews-sidebar h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-size: 1.5rem;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Estilos para scrollbar en la barra de reseñas */
+.reviews-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.reviews-sidebar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.reviews-sidebar::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+.reviews-sidebar::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.pokemon-card {
+  width: 100%;
+  max-width: 340px;
+}
+
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+  justify-items: center;
+  padding: 10px 0;
+}
+
+.pokemon-card-image {
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #dbeafe, #e9d5ff, #fce7f3);
+  padding: 1rem;
+}
+
+.pokemon-img {
+  max-width: 100%;
+  width: clamp(120px, 60%, 220px);
+  max-height: clamp(120px, 22vh, 180px);
+  object-fit: contain;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+}
+
+/* Estilos responsivos */
+@media (max-width: 1200px) {
+  .mypokemon-container {
+    flex-direction: column;
+  }
+  
+  .mypokemon-sidebar,
+  .reviews-sidebar {
+    width: 100%;
+    min-width: 100%;
+  }
+  
+  .reviews-sidebar {
+    max-height: 400px;
+  }
+}
+
+.sidebar-user {
+  font-size: 1.2em;
+  margin-bottom: 4px;
+}
+
+.sidebar-balance {
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.sidebar-create-btn {
+  margin-top: 12px;
+  width: 100%;
+}
+
+.mypokemon-main {
+  flex: 1;
+  padding: 32px 24px;
+}

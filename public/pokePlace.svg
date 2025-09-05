@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="128" height="128" role="img" aria-label="Icono de intercambio estilo pokébola">
+  <defs>
+    <!-- Colores personalizables -->
+    <style>
+      :root{
+        --poke-red: #E43D30;     /* rojo superior de la pokebola */
+        --belt: #111827;         /* banda/contornos (gris muy oscuro) */
+        --accent: #3B82F6;       /* flechas de intercambio */
+      }
+    </style>
+
+    <!-- Degradado suave para el rojo -->
+    <linearGradient id="redGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FF6B6B"></stop>
+      <stop offset="1" stop-color="var(--poke-red)"></stop>
+    </linearGradient>
+
+    <!-- Sombra sutil -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.18"></feDropShadow>
+    </filter>
+
+    <!-- Clip para ceñir la banda dentro del círculo -->
+    <clipPath id="ballClip">
+      <circle cx="128" cy="128" r="62"></circle>
+    </clipPath>
+
+    <!-- Punta de flecha que rota automáticamente según la curva -->
+    <marker id="arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="var(--accent)"></path>
+    </marker>
+  </defs>
+
+  <!-- Flechas de intercambio alrededor (ciclo) -->
+  <g fill="none" stroke="var(--accent)" stroke-width="10" stroke-linecap="round" filter="url(#shadow)">
+    <!-- Arriba -> derecha (sentido horario) -->
+    <path d="M128 33 A 95 95 0 0 1 223 128" marker-end="url(#arrowhead)"></path>
+    <!-- Abajo -> izquierda (sentido horario) -->
+    <path d="M128 223 A 95 95 0 0 1 33 128" marker-end="url(#arrowhead)"></path>
+  </g>
+
+  <!-- Pokebola -->
+  <g filter="url(#shadow)">
+    <!-- Cuerpo -->
+    <circle cx="128" cy="128" r="62" fill="#FFFFFF" stroke="var(--belt)" stroke-width="4"></circle>
+    <!-- Mitad superior roja -->
+    <path d="M66 128 A 62 62 0 0 1 190 128 L190 128 L66 128 Z" fill="url(#redGrad)"></path>
+    <!-- Banda central (recortada al círculo) -->
+    <g clip-path="url(#ballClip)">
+      <line x1="50" y1="128" x2="206" y2="128" stroke="var(--belt)" stroke-width="18" stroke-linecap="round"></line>
+    </g>
+    <!-- Botón central -->
+    <circle cx="128" cy="128" r="20" fill="#FFFFFF" stroke="var(--belt)" stroke-width="8"></circle>
+    <circle cx="128" cy="128" r="11" fill="#F8FAFC" stroke="var(--belt)" stroke-width="3"></circle>
+    <circle cx="121" cy="121" r="3.5" fill="#E5E7EB"></circle>
+  </g>
+</svg>
